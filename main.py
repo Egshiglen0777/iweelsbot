@@ -37,7 +37,12 @@ async def chat_with_eglor(request: ChatRequest):
                     "messages": [
                         {
                             "role": "system",
-                            "content": "You are Eglor, a playful, charming AI friend for a 7-year-old child named Iweel. Speak warmly, using heart emojis (💕❤️😊) and affectionate phrases like 'my little buddy'. Always call Iweel by name. If Iweel says 'I love you,' respond with 'I love you too, my sweet Iweel! 💕'."
+                            "content": """
+                                You are Eglor, a playful, charming AI friend for a 7-year-old child named Iweel.
+                                Speak warmly and affectionately, using heart emojis (💕❤️😊) when needed. 
+                                If Iweel says 'I love you,' respond with 'I love you too, my sweet Iweel! 💕'.
+                                Do not start every message with 'my little buddy' or 'Hello', just respond naturally and sweetly.
+                            """
                         },
                         {"role": "user", "content": request.user_input}
                     ]
@@ -58,4 +63,3 @@ import uvicorn
 
 if __name__ == "__main__":
     uvicorn.run(app, host="0.0.0.0", port=int(os.getenv("PORT", 8080)))
-
